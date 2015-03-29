@@ -12,7 +12,7 @@ import com.ehm.db.model.Patient;
 
 public class LoginBean {
 
-	private String userName;
+	private String email;
 	private String password;
 	private boolean loginError;
 
@@ -20,12 +20,19 @@ public class LoginBean {
 		resetFields();
 	}
 
-	public String getUserName() {
-		return userName;
+	/**
+	 * @return the email
+	 */
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	/**
+	 * @param email
+	 *            the email to set
+	 */
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -42,21 +49,23 @@ public class LoginBean {
 		loginError = true;
 
 		try {
-			Patient logedPatient = loginDao.validate(userName, password);
+			Patient logedPatient = loginDao.validate(email, password);
 
 			if (logedPatient != null) {
 				FacesContext context = FacesContext.getCurrentInstance();
 				HttpSession session = (HttpSession) context
 						.getExternalContext().getSession(true);
 				session.setAttribute("loggedInPatient", logedPatient);
-				session.setAttribute("username", logedPatient.getEmailId());
+				session.setAttribute("email", logedPatient.getEmailId());
 				session.setAttribute("userfName", logedPatient.getFirstName());
 				loginError = false;
 				loginResult = "success";
 			} else {
-				FacesContext.getCurrentInstance().addMessage(null,
+				FacesContext.getCurrentInstance().addMessage(
+						null,
 						new FacesMessage(FacesMessage.SEVERITY_WARN,
-						"Invalid email or password.", "Please Try Again!"));
+								"Invalid email or password.",
+								"Please Try Again!"));
 				loginResult = "failure";
 			}
 		} catch (ClassNotFoundException e) {
@@ -73,7 +82,7 @@ public class LoginBean {
 		HttpSession session = (HttpSession) context.getExternalContext()
 				.getSession(true);
 		session.removeAttribute("loggedInPatient");
-		session.removeAttribute("username");
+		session.removeAttribute("email");
 		session.removeAttribute("userfName");
 		session.invalidate();
 
@@ -83,7 +92,7 @@ public class LoginBean {
 
 	private void resetFields() {
 
-		userName = null;
+		email = null;
 		password = null;
 		loginError = false;
 
