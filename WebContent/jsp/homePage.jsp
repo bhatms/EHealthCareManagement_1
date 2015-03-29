@@ -10,7 +10,7 @@
 
 </head>
 <body>
-	<h1 style="font:san-serif;">Welcome To E-Healthcare</h1>
+	<h1>Welcome To E-Healthcare</h1>
 	<f:view>
 
 		<h:form>
@@ -18,17 +18,14 @@
 				<tr>
 					<td><h:commandLink action="#{welcomeBean.goToSearchDoctor}"
 							value="Find Doctor"></h:commandLink></td>
-					<td>&nbsp;</td>		
-					<td><h:commandLink action="#{welcomeBean.goToCreateAccount}"
-							value="Create Account"></h:commandLink></td>
-					<td>&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
 					<td><h:commandLink action="#{welcomeBean.goToLogin}"
 							value="Login"></h:commandLink></td>
-					<td>&nbsp;</td>
-					
+					<td>&nbsp;&nbsp;</td>
+
 					<td><h:commandLink action="#{welcomeBean.goToCreateAccount}"
 							value="Create New Account"></h:commandLink></td>
-					<td>&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
 				</tr>
 			</table>
 		</h:form>
