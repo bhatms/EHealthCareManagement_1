@@ -14,7 +14,7 @@
 		<table>
 			<tr>
 				<td><h:outputLabel value="Enter Email id: "></h:outputLabel></td>
-				<td><h:inputText id="userName" value="#{loginBean.userName}" required="true" requiredMessage="Please enter user email id.."></h:inputText>
+				<td><h:inputText id="email" value="#{loginBean.email}" required="true" requiredMessage="Please enter user email id."></h:inputText>
 				</td>
 			</tr>
 			<tr>
