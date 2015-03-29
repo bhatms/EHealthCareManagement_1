@@ -2,7 +2,7 @@ package com.ehm.db.model;
 
 public class Patient {
 
-
+	private int patientId;
 	private String firstName;
 	private String lastName;
 	private String emailId;
@@ -11,6 +11,9 @@ public class Patient {
 	private String state;
 	private String city;
 	private String zip;
+	private String dob;
+	private String gender;
+	private String password;
 	/**
 	 * @return the firstName
 	 */
@@ -106,5 +109,55 @@ public class Patient {
 	 */
 	public void setZip(String zip) {
 		this.zip = zip;
+	}
+	/**
+	 * @return the dob
+	 */
+	public String getDob() {
+		return dob;
+	}
+	/**
+	 * @param dob the dob to set
+	 */
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
+
+	
+	/**
+	 * @return the gender
+	 */
+	public String getGender() {
+		return gender;
+	}
+	/**
+	 * @param gender the gender to set
+	 */
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	/**
+	 * @return the patientId
+	 */
+	public int getPatientId() {
+		return patientId;
+	}
+	/**
+	 * @param patientId the patientId to set
+	 */
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
 	}
 }
