@@ -14,7 +14,7 @@ public class WelcomeBean {
 
 	public String goToCreateAccount() {
 
-		return "navigateCreateAccountPage";
+		return "navigateToCreateAccount";
 	}
 
 	public String goToLogin() {
