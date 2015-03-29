@@ -8,22 +8,30 @@
 		<description>contain doctor related info</description>
 		<managed-bean-name>doctorBean</managed-bean-name>
 		<managed-bean-class>com.ehm.web.managebeans.DoctorBean</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 
 	<managed-bean>
-		<description>contain doctor related info</description>
+		<description>contain login info</description>
 		<managed-bean-name>loginBean</managed-bean-name>
 		<managed-bean-class>com.ehm.web.managebeans.LoginBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 
 	<managed-bean>
-		<description>contain doctor related info</description>
+		<description>contain homepage functions</description>
 		<managed-bean-name>welcomeBean</managed-bean-name>
 		<managed-bean-class>com.ehm.web.managebeans.WelcomeBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	
+	<managed-bean>
+		<description>contain new account info</description>
+		<managed-bean-name>newAccountBean</managed-bean-name>
+		<managed-bean-class>com.ehm.web.managebeans.NewAccountBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
 
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
@@ -45,8 +53,8 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
-			<from-outcome>navigateCreateAccountPage</from-outcome>
-			<to-view-id>/jsp/createNewAccount.jsp</to-view-id>
+			<from-outcome>navigateToCreateAccount</from-outcome>
+			<to-view-id>/jsp/createaccount.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 
