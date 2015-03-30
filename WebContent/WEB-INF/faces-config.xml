@@ -73,5 +73,15 @@
 			<to-view-id>/jsp/Login.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	
+		<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>navigateToDoctorProfile</from-outcome>
+			<to-view-id>/jsp/viewDoctorProfile.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	
 
 </faces-config>
