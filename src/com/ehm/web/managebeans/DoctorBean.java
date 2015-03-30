@@ -26,6 +26,8 @@ public class DoctorBean {
 
 	private List<Doctor> doctorSearchList;
 	private boolean showSearch;
+	private int doctorId;
+	private Doctor doctorProfileList;
 
 	/**
 	 * @return the firstName
@@ -239,21 +241,25 @@ public class DoctorBean {
 	public String goToDetailProfile() {
 
 		DoctorDao doctorDao = new DoctorDaoImpl();
+		String result = null;
 		try {
-			String selectedDoctorId = FacesContext.getCurrentInstance().getExternalContext()
-					.getRequestParameterMap().get("doctorId");
-			
-			if(selectedDoctorId != null && !selectedDoctorId.trim().isEmpty()){
-				int id = Integer.valueOf(selectedDoctorId);
-				System.out.println("selected doctor id:"+id);
+			String selectedDoctorId = FacesContext.getCurrentInstance()
+					.getExternalContext().getRequestParameterMap()
+					.get("doctorId");
+
+			if (selectedDoctorId != null && !selectedDoctorId.trim().isEmpty()) {
+				int docId = Integer.valueOf(selectedDoctorId);
+				doctorProfileList = doctorDao.getDoctorProfile(docId);
+				result = "navigateToDoctorProfile";
 			}
-			
 
-		} catch (Exception ex) {
-
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 
-		return null;
+		return result;
 	}
 
 	public static void main(String[] args) {
@@ -289,5 +295,44 @@ public class DoctorBean {
 	 */
 	public void setShowSearch(boolean showSearch) {
 		this.showSearch = showSearch;
+	}
+
+	/**
+	 * @return the doctorId
+	 */
+	public int getDoctorId() {
+		return doctorId;
+	}
+
+	/**
+	 * @param doctorId
+	 *            the doctorId to set
+	 */
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
+	}
+
+	/**
+	 * @return the doctorProfileList
+	 */
+	public Doctor getDoctorProfileList() {
+		return doctorProfileList;
+	}
+
+	/**
+	 * @param doctorProfileList
+	 *            the doctorProfileList to set
+	 */
+	public void setDoctorProfileList(Doctor doctorProfileList) {
+		this.doctorProfileList = doctorProfileList;
+	}
+
+	public void reset() {
+
+		showSearch = false;
+		firstName = null;
+		lastName = null;
+		doctorProfileList = null;
+
 	}
 }
