@@ -13,7 +13,7 @@ public interface DoctorDao {
 	
 	List<Doctor> getSearchDoctorRecords(String specialization);
 
-	Doctor getDoctorProfile(String doctoId);
+	Doctor getDoctorProfile(int doctoId) throws ClassNotFoundException, SQLException;
 
 	List<SelectItem> getSpecializationList() throws ClassNotFoundException, SQLException;
 }
