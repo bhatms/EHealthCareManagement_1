@@ -8,19 +8,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>E-Healthcare Management</title>
 
-<script type="text/javascript">
-
-function callJS(nameVar){
-	
-	alert(nameVar);
-}
-</script>
 
 </head>
 <body>
 	<f:view>
-		<h1>Find Doctor</h1>
-
+		<h:graphicImage value="/images/logo1.PNG" width="98%" height="150"
+			style="margin-left: 10%, margin-right: 10%;"></h:graphicImage>
+		<br>
+		<br>
+		<h:outputText value="Search For Doctor" style="font-weight:bold;"></h:outputText>
 		<h:form id="searchParamForm">
 
 			<h:panelGrid columns="10">

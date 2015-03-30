@@ -10,12 +10,37 @@
 
 </head>
 <body>
-	<h1>Welcome To E-Healthcare</h1>
-	<f:view>
-		<h2>Welcome</h2>&nbsp; <%=session.getAttribute("userfName")%>
 
+	<f:view>
+		<h:graphicImage value="/images/logo1.PNG" width="98%" height="150"
+			style="margin-left: 10%, margin-right: 10%;"></h:graphicImage>
+		<br>
+		<br>
 		<h:form>
-			<h:commandLink value="Logout" action="#{loginBean.userLogout }" />
+			<table>
+				<tr>
+					<td>
+						<h2>
+							Welcome&nbsp;
+							<%=session.getAttribute("userfName")%></h2>
+					</td>
+					<td>&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
+					<td align="right"><h:commandLink value="Logout"
+							action="#{loginBean.userLogout }" /></td>
+				</tr>
+			</table>
+
+			<h:panelGrid>
+				<h:commandLink value="Profile"></h:commandLink>
+				<h:commandLink value="History"></h:commandLink>
+
+			</h:panelGrid>
 		</h:form>
 	</f:view>
 

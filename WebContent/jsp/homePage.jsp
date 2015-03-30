@@ -10,24 +10,26 @@
 
 </head>
 <body>
-	<h1>Welcome To E-Healthcare</h1>
 	<f:view>
-
+		<h:graphicImage value="/images/logo1.PNG" width="98%" height="150"
+			style="margin-left: 10%, margin-right: 10%;"></h:graphicImage>
 		<h:form>
-			<table>
-				<tr>
-					<td><h:commandLink action="#{welcomeBean.goToSearchDoctor}"
-							value="Find Doctor"></h:commandLink></td>
-					<td>&nbsp;&nbsp;</td>
-					<td><h:commandLink action="#{welcomeBean.goToLogin}"
-							value="Login"></h:commandLink></td>
-					<td>&nbsp;&nbsp;</td>
+			<h:panelGrid>
+				<table>
+					<tr>
+						<td><h:commandLink action="#{welcomeBean.goToSearchDoctor}"
+								value="Find Doctor"></h:commandLink></td>
+						<td>&nbsp;&nbsp;</td>
+						<td><h:commandLink action="#{welcomeBean.goToLogin}"
+								value="Login"></h:commandLink></td>
+						<td>&nbsp;&nbsp;</td>
 
-					<td><h:commandLink action="#{welcomeBean.goToCreateAccount}"
-							value="Create New Account"></h:commandLink></td>
-					<td>&nbsp;&nbsp;</td>
-				</tr>
-			</table>
+						<td><h:commandLink action="#{welcomeBean.goToCreateAccount}"
+								value="Create New Account"></h:commandLink></td>
+						<td>&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</h:panelGrid>
 		</h:form>
 	</f:view>
 
