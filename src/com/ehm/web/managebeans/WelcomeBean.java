@@ -3,7 +3,7 @@ package com.ehm.web.managebeans;
 public class WelcomeBean {
 
 	public String goToSearchDoctor() {
-
+		
 		return "navigateToSearchDoctor";
 	}
 
