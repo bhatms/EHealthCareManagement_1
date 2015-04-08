@@ -7,7 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>E-Healthcare Management</title>
-
+<link href="/EHealthcareManagement/resources/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -31,7 +32,8 @@
 					<f:selectItems value="#{doctorBean.specializationList}" />
 				</h:selectOneMenu>
 				&nbsp;
-			<h:commandButton action="#{doctorBean.searchDoctor}" value="Search"></h:commandButton>
+			<h:commandButton action="#{doctorBean.searchDoctor}" value="Search" styleClass="btn btn-success">
+			</h:commandButton>
 			</h:panelGrid>
 
 
