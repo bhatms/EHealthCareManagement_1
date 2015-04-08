@@ -18,68 +18,91 @@
 		<h:graphicImage value="/images/logo1.PNG" width="98%" height="150"
 			style="margin-left: 10%, margin-right: 10%;"></h:graphicImage>
 		<br>
-		<br>
-		<h2>Doctor Profile</h2>
-		<h:form id="viewDoctorProfileForm">
-
-
-
+		<h2>Profile</h2>
+		<h:form>
 			<table>
 				<tr>
-					<td><h:outputText value="Name:" /></td>
-					<td><h:outputText
-							value="#{patientBean.firstName}"></h:outputText>&nbsp;
-						<h:outputText value="#{patientBean.lastName}"></h:outputText></td>
+					<td><h:outputLabel value="Personal Information:"
+							style="font-weight: bold;" /></td>
 				</tr>
 				<tr>
-					<td><h:outputText value="Qualification" /></td>
-					<td><h:outputText
-							value="#{doctorBean.doctorProfileList.qualification}" /></td>
+					<td><h:outputLabel value="First Name"></h:outputLabel></td>
+					<td><h:inputText
+							value="#{newAccountBean.currentPatient.firstName}" id="new_fname"
+							required="true" requiredMessage="Please Enter first name"></h:inputText></td>
+					<td><h:message for="new_fname" style="color:red" /></td>
 				</tr>
 				<tr>
-					<td><h:outputText value="Specialization" /></td>
-					<td><h:outputText
-							value="#{doctorBean.doctorProfileList.specialization}" /></td>
+					<td><h:outputLabel value="Last Name"></h:outputLabel></td>
+					<td><h:inputText
+							value="#{newAccountBean.currentPatient.lastName}" id="new_lname"
+							required="true" requiredMessage="Please Enter last name"></h:inputText></td>
+					<td><h:message for="new_lname" style="color:red" /></td>
 				</tr>
 				<tr>
-					<td><h:outputText value="Designation" /></td>
-					<td><h:outputText
-							value="#{doctorBean.doctorProfileList.designation}" /></td>
+					<td><h:outputLabel value="Date Of Birth"></h:outputLabel></td>
+					<td><h:inputText value="#{newAccountBean.currentPatient.dob}"
+							id="new_dob" required="true"
+							requiredMessage="Please date of birth">
+						</h:inputText> <h:outputLabel value="mm/dd/yyyy" /></td>
+					<td><h:message for="new_dob" style="color:red" /></td>
 				</tr>
 				<tr>
-					<td><h:outputText value="Visiting Days:"/></td>
-					<td><h:outputText
-							value="#{doctorBean.doctorProfileList.visitingDays}" /></td>
+					<td><h:outputLabel value="Phone No"></h:outputLabel></td>
+					<td><h:inputText
+							value="#{newAccountBean.currentPatient.phoneNum}" id="phone_no"
+							required="true" requiredMessage="Please Enter phone no."></h:inputText></td>
+
+					<td><h:message for="phone_no" style="color:red" /></td>
 				</tr>
 				<tr>
-					<td><h:outputText value="Visiting Hours:"/></td>
-					<td><h:outputText
-							value="#{doctorBean.doctorProfileList.visitingHours}" /></td>
+					<td><h:outputLabel value="Address Information:"
+							style="font-weight: bold;" /></td>
 				</tr>
 
 				<tr>
-					<td><h:outputText value="Email ID:" /></td>
-					<td><h:outputText
-							value="#{doctorBean.doctorProfileList.emailId}" /></td>
+
+					<td><h:outputLabel value="Address Line"></h:outputLabel></td>
+					<td><h:inputText
+							value="#{newAccountBean.currentPatient.addrLine1}" id="addrLine"
+							required="true" requiredMessage="Please Enter address line"></h:inputText></td>
+					<td><h:message for="addrLine" style="color:red" /></td>
 				</tr>
 				<tr>
-					<td><h:outputText value="Phone:" /></td>
-					<td><h:outputText
-							value="#{doctorBean.doctorProfileList.phoneNum}" /></td>
+
+					<td><h:outputLabel value="State"></h:outputLabel></td>
+					<td><h:inputText
+							value="#{newAccountBean.currentPatient.state}" id="state"
+							required="true" requiredMessage="Please Enter state."></h:inputText>
+					</td>
+					<td><h:message for="state" style="color:red" /></td>
 				</tr>
-			<tr><td></td><td></td></tr>
-			<tr>
-			<td>
-			<h:commandButton value="Go back" action="#{patientBean.goToSearchDoctor}" styleClass="btn btn-success"/>
-			</td>
-			<td>
-			<h:commandButton value="Update Profile" action="#{patientBean.goToSearchDoctor}" styleClass="btn btn-success"/>
-			</td>
-			</tr>
+				<tr>
+					<td><h:outputLabel value="City"></h:outputLabel></td>
+					<td><h:inputText value="#{newAccountBean.currentPatient.city}"
+							id="city" required="true" requiredMessage="Please Enter city"></h:inputText>
+					</td>
+					<td><h:message for="City" style="color:red" /></td>
+				</tr>
+				<tr>
+					<td><h:outputLabel value="Zip"></h:outputLabel></td>
+					<td><h:inputText value="#{newAccountBean.currentPatient.zip}"
+							id="zip" maxlength="5" required="true"
+							requiredMessage="Please Enter zip">
+						</h:inputText></td>
+					<td><h:message for="Zip" style="color:red" /></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td><h:commandButton value="Update Profile"
+							action="#{newAccountBean.updateSaveProfile}" styleClass="btn btn-success"/></td>
+					<td><h:commandButton value="Cancel"
+							action="#{newAccountBean.backToHome}" styleClass="btn btn-success"/></td>
+					<td></td>
+				</tr>
 			</table>
-			
-
-
 
 		</h:form>
 

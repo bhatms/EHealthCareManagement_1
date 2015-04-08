@@ -21,6 +21,7 @@ public class NewAccountBean {
 	private String password;
 	private String gender;
 	private String dateOfBirth;
+	private Patient currentPatient;
 
 	/**
 	 * @return the firstName
@@ -209,14 +210,14 @@ public class NewAccountBean {
 
 			Patient addedPatient = patientDaoObj.ceateNewAccount(newPatient);
 			saveResult = "success";
-			
+
 			FacesContext context = FacesContext.getCurrentInstance();
-			HttpSession session = (HttpSession) context
-					.getExternalContext().getSession(true);
+			HttpSession session = (HttpSession) context.getExternalContext()
+					.getSession(true);
 			session.setAttribute("loggedInPatient", addedPatient);
 			session.setAttribute("username", addedPatient.getEmailId());
 			session.setAttribute("userfName", addedPatient.getFirstName());
-		
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -225,5 +226,40 @@ public class NewAccountBean {
 			e.printStackTrace();
 		}
 		return saveResult;
+	}
+
+	public String viewPatientProfile() {
+
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) context.getExternalContext()
+				.getSession(true);
+		currentPatient = (Patient) session.getAttribute("loggedInPatient");
+
+		return "navigatePatientProfile";
+	}
+
+	public String updateSaveProfile() {
+
+		return null;
+	}
+
+	public String backToHome() {
+
+		return "success";
+	}
+
+	/**
+	 * @return the currentPatient
+	 */
+	public Patient getCurrentPatient() {
+		return currentPatient;
+	}
+
+	/**
+	 * @param currentPatient
+	 *            the currentPatient to set
+	 */
+	public void setCurrentPatient(Patient currentPatient) {
+		this.currentPatient = currentPatient;
 	}
 }

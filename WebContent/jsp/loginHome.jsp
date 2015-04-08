@@ -38,7 +38,7 @@
 			</table>
 
 			<h:panelGrid>
-				<h:commandLink value="Profile"></h:commandLink>
+				<h:commandLink value="Profile" action="#{newAccountBean.viewPatientProfile}"></h:commandLink>
 				<h:commandLink value="History"></h:commandLink>
 
 			</h:panelGrid>

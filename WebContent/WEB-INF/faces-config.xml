@@ -24,14 +24,14 @@
 		<managed-bean-class>com.ehm.web.managebeans.WelcomeBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	
+
 	<managed-bean>
 		<description>contain new account info</description>
 		<managed-bean-name>newAccountBean</managed-bean-name>
 		<managed-bean-class>com.ehm.web.managebeans.NewAccountBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	
+
 
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
@@ -73,15 +73,22 @@
 			<to-view-id>/jsp/Login.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
-		<navigation-rule>
+
+	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-outcome>navigateToDoctorProfile</from-outcome>
 			<to-view-id>/jsp/viewDoctorProfile.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-	
-	
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>navigatePatientProfile</from-outcome>
+			<to-view-id>/jsp/patientProfile.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
 
 </faces-config>
