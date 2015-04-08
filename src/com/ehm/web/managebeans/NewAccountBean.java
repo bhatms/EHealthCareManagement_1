@@ -2,6 +2,7 @@ package com.ehm.web.managebeans;
 
 import java.sql.SQLException;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
@@ -217,7 +218,7 @@ public class NewAccountBean {
 			session.setAttribute("loggedInPatient", addedPatient);
 			session.setAttribute("username", addedPatient.getEmailId());
 			session.setAttribute("userfName", addedPatient.getFirstName());
-
+			reset();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -229,22 +230,107 @@ public class NewAccountBean {
 	}
 
 	public String viewPatientProfile() {
-
+		reset();
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpSession session = (HttpSession) context.getExternalContext()
 				.getSession(true);
 		currentPatient = (Patient) session.getAttribute("loggedInPatient");
+
+		firstName = currentPatient.getFirstName();
+		lastName = currentPatient.getLastName();
+		addressLine = currentPatient.getAddrLine1();
+		zip = currentPatient.getZip();
+		// emailId = currentPatient.getEmailId();
+		city = currentPatient.getCity();
+		state = currentPatient.getState();
+		phoneNo = currentPatient.getPhoneNum();
+		// password = currentPatient.getPassword();
+		gender = currentPatient.getGender();
+		dateOfBirth = currentPatient.getDob();
 
 		return "navigatePatientProfile";
 	}
 
 	public String updateSaveProfile() {
 
+		Patient newPatient = new Patient();
+
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) context.getExternalContext()
+				.getSession(true);
+		currentPatient = (Patient) session.getAttribute("loggedInPatient");
+		boolean isUpdate = false;
+
+		if (!firstName.equals(currentPatient.getFirstName())) {
+			isUpdate = true;
+			newPatient.setFirstName(firstName);
+		}
+
+		if (!lastName.equals(currentPatient.getLastName())) {
+			isUpdate = true;
+			newPatient.setLastName(lastName);
+		}
+
+		if (!dateOfBirth.equals(currentPatient.getDob())) {
+			isUpdate = true;
+			newPatient.setDob(dateOfBirth);
+		}
+
+		if (!phoneNo.equals(currentPatient.getPhoneNum())) {
+
+			isUpdate = true;
+			newPatient.setPhoneNum(phoneNo);
+		}
+		if (!addressLine.equals(currentPatient.getAddrLine1())) {
+			isUpdate = true;
+			newPatient.setAddrLine1(addressLine);
+		}
+		if (!city.equals(currentPatient.getCity())) {
+			isUpdate = true;
+			newPatient.setCity(city);
+		}
+		if (!zip.equals(currentPatient.getZip())) {
+			isUpdate = true;
+			newPatient.setZip(zip);
+		}
+		if (!state.equals(currentPatient.getState())) {
+			isUpdate = true;
+			newPatient.setState(state);
+		}
+
+		if (isUpdate) {
+			PatientDaoImpl patientDaoObj = new PatientDaoImpl();
+			newPatient.setEmailId(currentPatient.getEmailId());
+			try {
+				patientDaoObj.updateAndSaveProfile(newPatient);
+				FacesContext.getCurrentInstance().addMessage(
+						null,
+						new FacesMessage(FacesMessage.SEVERITY_INFO,
+								"Data updated successfully.", "Success"));
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				FacesContext.getCurrentInstance().addMessage(
+						null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, e
+								.getMessage(), "error"));
+			} catch (SQLException e) {
+				e.printStackTrace();
+				FacesContext.getCurrentInstance().addMessage(
+						null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, e
+								.getMessage(), "error"));
+			} catch (Exception e) {
+				FacesContext.getCurrentInstance().addMessage(
+						null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, e
+								.getMessage(), "error"));
+			}
+		}
+
 		return null;
 	}
 
 	public String backToHome() {
-
 		return "success";
 	}
 
@@ -261,5 +347,20 @@ public class NewAccountBean {
 	 */
 	public void setCurrentPatient(Patient currentPatient) {
 		this.currentPatient = currentPatient;
+	}
+
+	public void reset() {
+
+		firstName = null;
+		lastName = null;
+		addressLine = null;
+		zip = null;
+		emailId = null;
+		city = null;
+		state = null;
+		phoneNo = null;
+		password = null;
+		gender = null;
+		dateOfBirth = null;
 	}
 }

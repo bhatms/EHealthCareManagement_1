@@ -36,6 +36,10 @@ public class LoginDaoImpl implements LoginDao {
 			logedinPatient.setState(resultSet.getString("address_state"));
 			logedinPatient.setEmailId(resultSet.getString("email"));
 			logedinPatient.setPhoneNum(resultSet.getString("phone_no"));
+			logedinPatient.setPatientId(resultSet.getInt("patient_id"));
+			logedinPatient.setDob(resultSet.getString("dob"));
+			logedinPatient.setGender(resultSet.getString("gender"));
+			logedinPatient.setPassword(resultSet.getString("password"));
 		}
 		
 		return logedinPatient;

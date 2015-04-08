@@ -3,6 +3,8 @@ package com.ehm.db.impl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ehm.db.config.EHMDataConnect;
 import com.ehm.db.model.Patient;
@@ -11,7 +13,7 @@ public class PatientDaoImpl {
 
 
 	public Patient ceateNewAccount(Patient insertPatient) throws SQLException,
-			ClassNotFoundException {
+	ClassNotFoundException {
 
 		String insertTableSQL = " INSERT INTO patient "
 				+ " (first_name, last_name, address_line1, address_city,address_state, address_zip , "
@@ -33,10 +35,10 @@ public class PatientDaoImpl {
 
 		preparedStatement.executeUpdate();
 
-		return getNewCreatedPatient(insertPatient.getEmailId());
+		return getPatientByEmail(insertPatient.getEmailId());
 	}
 
-	private Patient getNewCreatedPatient(String emailId)
+	private Patient getPatientByEmail(String emailId)
 			throws ClassNotFoundException, SQLException {
 
 		String sqlStr = "select * from patient where email = ?";
@@ -49,7 +51,7 @@ public class PatientDaoImpl {
 		ResultSet result = ps.executeQuery();
 
 		while(result.next()){
-			
+
 			newPatient = new Patient();
 			newPatient.setPatientId(result.getInt("patient_id"));
 			newPatient.setFirstName(result.getString("first_name"));
@@ -64,8 +66,105 @@ public class PatientDaoImpl {
 			newPatient.setGender(result.getString("gender"));
 			newPatient.setPassword(result.getString("password"));
 		}
-		
+
 		return newPatient;
 	}
 
+
+	public Patient updateAndSaveProfile(Patient newPatient)
+			throws ClassNotFoundException, SQLException {
+
+		StringBuffer sqlStr = new StringBuffer("update patient set ");
+
+		List<String> paramList = new ArrayList<String>();
+
+		if(newPatient.getFirstName() != null && !newPatient.getFirstName().isEmpty()){
+			sqlStr.append("  first_name = ? ");
+			paramList.add(newPatient.getFirstName());
+		}
+
+		if(newPatient.getLastName() != null && !newPatient.getLastName().isEmpty()){
+
+			if(sqlStr.toString().contains("?")){
+				sqlStr.append(" , ");
+			}
+			sqlStr.append(" last_name = ?");
+			paramList.add(newPatient.getLastName());
+		}
+
+
+		if(newPatient.getDob() != null && !newPatient.getDob().isEmpty()){
+
+			if(sqlStr.toString().contains("?")){
+				sqlStr.append(" , ");
+			}
+			sqlStr.append(" dob = ?");
+			paramList.add(newPatient.getDob());
+		}
+
+		if(newPatient.getPhoneNum() != null && !newPatient.getPhoneNum().isEmpty()){
+
+			if(sqlStr.toString().contains("?")){
+				sqlStr.append(" , ");
+			}
+			sqlStr.append(" phone_no = ?");
+			paramList.add(newPatient.getPhoneNum());
+		}
+
+
+		if(newPatient.getAddrLine1() != null && !newPatient.getAddrLine1().isEmpty()){
+
+			if(sqlStr.toString().contains("?")){
+				sqlStr.append(" , ");
+			}
+			sqlStr.append(" address_line1 = ?");
+			paramList.add(newPatient.getAddrLine1());
+		}
+
+
+		if(newPatient.getState() != null && !newPatient.getState().isEmpty()){
+
+			if(sqlStr.toString().contains("?")){
+				sqlStr.append(" , ");
+			}
+			sqlStr.append(" address_state = ?");
+			paramList.add(newPatient.getState());
+		}
+
+		if(newPatient.getCity() != null && !newPatient.getCity().isEmpty()){
+
+			if(sqlStr.toString().contains("?")){
+				sqlStr.append(" , ");
+			}
+			sqlStr.append(" address_city = ?");
+			paramList.add(newPatient.getCity());
+		}
+
+		if(newPatient.getZip() != null && !newPatient.getZip().isEmpty()){
+
+			if(sqlStr.toString().contains("?")){
+				sqlStr.append(" , ");
+			}
+			sqlStr.append(" address_zip = ?");
+			paramList.add(newPatient.getZip());
+		}
+
+		sqlStr.append(" where email = ?");
+		paramList.add(newPatient.getEmailId());
+		
+		System.out.println("**update patient query :"+sqlStr.toString());
+		
+		PreparedStatement preparedStatement = EHMDataConnect.getDataConn()
+				.prepareStatement(sqlStr.toString());
+		
+		int cnt = 1;
+		for (String paramVal : paramList) {
+			preparedStatement.setString(cnt, paramVal);
+			cnt++;
+		}
+
+		preparedStatement.executeUpdate();
+
+		return newPatient;
+	}
 }
