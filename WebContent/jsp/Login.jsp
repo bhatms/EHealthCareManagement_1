@@ -6,6 +6,8 @@
 	<html>
 <head>
 <title>Login E-healthCare</title>
+<link href="/EHealthcareManagement/resources/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<h:form>
