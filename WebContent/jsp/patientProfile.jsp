@@ -28,8 +28,8 @@
 				<tr>
 					<td><h:outputText value="Name:" /></td>
 					<td><h:outputText
-							value="#{doctorBean.doctorProfileList.firstName}"></h:outputText>&nbsp;
-						<h:outputText value="#{doctorBean.doctorProfileList.lastName}"></h:outputText></td>
+							value="#{patientBean.firstName}"></h:outputText>&nbsp;
+						<h:outputText value="#{patientBean.lastName}"></h:outputText></td>
 				</tr>
 				<tr>
 					<td><h:outputText value="Qualification" /></td>
@@ -70,9 +70,10 @@
 			<tr><td></td><td></td></tr>
 			<tr>
 			<td>
-			<h:commandButton value="Back to search" action="#{welcomeBean.goToSearchDoctor}" styleClass="btn btn-success"/>
+			<h:commandButton value="Go back" action="#{patientBean.goToSearchDoctor}" styleClass="btn btn-success"/>
 			</td>
 			<td>
+			<h:commandButton value="Update Profile" action="#{patientBean.goToSearchDoctor}" styleClass="btn btn-success"/>
 			</td>
 			</tr>
 			</table>
