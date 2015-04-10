@@ -97,6 +97,7 @@ public class PatientBean {
 				int patId = Integer.valueOf(selectedPatientId);
 				patientQueryList = patientqueryDao.patientQuery(patId);
 			}
+			
 			if (patientQueryList != null && !patientQueryList.isEmpty()) {
 				showQuery = true;
 			}
