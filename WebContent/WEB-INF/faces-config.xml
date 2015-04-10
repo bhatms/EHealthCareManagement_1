@@ -32,7 +32,13 @@
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 
-
+<managed-bean>
+		<description>contain patient query info</description>
+		<managed-bean-name>patientBean</managed-bean-name>
+		<managed-bean-class>com.ehm.web.managebeans.PatientBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
@@ -94,6 +100,13 @@
 		<navigation-case>
 			<from-outcome>navigateToQuery</from-outcome>
 			<to-view-id>/jsp/postQuery.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>patientQuery</from-outcome>
+			<to-view-id>/jsp/PatientQuery.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 

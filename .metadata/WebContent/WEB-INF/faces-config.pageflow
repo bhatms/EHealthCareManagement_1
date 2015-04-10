@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14272944212310" configfile="/EHealthcareManagement/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="754" id="pf14274050863280" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf14274050863281 pf14274050863282 pf14274050863283 pf14274051379469 pf14274291678570 pf14274291678581" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="1330" id="pf14274050863280" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf14274050863281 pf14274050863282 pf14274051379469 pf14274291678570 pf14274291678581 pf14286461162610 pf14286461162611 pf14286461162612 pf14286461162613 pf14286461162614" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="jsp/homePage" x="338" y="178" id="pf14274050863285" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14274050863281" path="/jsp/homePage.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="jsp/searchForDoctor" x="338" y="562" id="pf14274050863286" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14274050863282" path="/jsp/searchForDoctor.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="jsp/createNewAccount" x="338" y="946" id="pf14274050863287" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14274050863283" path="/jsp/createNewAccount.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="jsp/Login" id="pf142740513794612" referenceLink="//@navigationRule.3/@navigationCase.2/@toViewId|" inlinks="pf14274051379469 pf14274291678581" path="/jsp/Login.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="jsp/loginHome" id="pf14274291678582" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" inlinks="pf14274291678570" path="/jsp/loginHome.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsp/createNewAccount" x="122" y="2290" id="pf14274050863287" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="/jsp/createNewAccount.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsp/Login" x="338" y="946" id="pf142740513794612" referenceLink="//@navigationRule.3/@navigationCase.2/@toViewId|" inlinks="pf14274051379469 pf14274291678581" path="/jsp/Login.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsp/loginHome" x="338" y="1330" id="pf14274291678582" referenceLink="//@navigationRule.3/@navigationCase.1/@toViewId|" inlinks="pf14274291678570" path="/jsp/loginHome.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsp/createaccount" x="338" y="1714" id="pf14286461162635" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14286461162610" path="/jsp/createaccount.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsp/viewDoctorProfile" x="338" y="2098" id="pf14286461162636" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf14286461162611" path="/jsp/viewDoctorProfile.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsp/patientProfile" x="338" y="2482" id="pf14286461162637" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf14286461162612" path="/jsp/patientProfile.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsp/postQuery" x="338" y="2866" id="pf14286461162638" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf14286461162613" path="/jsp/postQuery.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="jsp/PatientQuery" id="pf14286461162639" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf14286461162614" path="/jsp/PatientQuery.jsp"/>
   <links id="pf14274050863281" target="pf14274050863285" source="pf14274050863280" outcome="navigateToHomePage"/>
   <links id="pf14274050863282" target="pf14274050863286" source="pf14274050863280" outcome="navigateToSearchDoctor"/>
-  <links id="pf14274050863283" target="pf14274050863287" source="pf14274050863280" outcome="navigateCreateAccountPage"/>
   <links id="pf14274051379469" target="pf142740513794612" source="pf14274050863280" outcome="navigateToLogin"/>
   <links id="pf14274291678570" target="pf14274291678582" source="pf14274050863280" outcome="success"/>
   <links id="pf14274291678581" target="pf142740513794612" source="pf14274050863280" outcome="failure"/>
+  <links id="pf14286461162610" target="pf14286461162635" source="pf14274050863280" outcome="navigateToCreateAccount"/>
+  <links id="pf14286461162611" target="pf14286461162636" source="pf14274050863280" outcome="navigateToDoctorProfile"/>
+  <links id="pf14286461162612" target="pf14286461162637" source="pf14274050863280" outcome="navigatePatientProfile"/>
+  <links id="pf14286461162613" target="pf14286461162638" source="pf14274050863280" outcome="navigateToQuery"/>
+  <links id="pf14286461162614" target="pf14286461162639" source="pf14274050863280" outcome="patientQuery"/>
 </pageflow:Pageflow>

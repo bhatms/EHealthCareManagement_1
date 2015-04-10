@@ -20,19 +20,23 @@ public class PatientQueryDaoImpl implements PatientQueryDao {
 		 */
 
 		PreparedStatement ps = EHMDataConnect.getDataConn().prepareStatement(
-				"Select * from query where patientId = ? and is_ans = 'Y'");
+				"Select * from patient_query where patient_id = ?");
 		
 		ps.setInt(1, patientId);
 		
 		List<PatientQuery> list = new ArrayList<PatientQuery>();
 
 		ResultSet resultSet = ps.executeQuery();
-		
+
 		if(resultSet != null && resultSet.next()){
 			PatientQuery patque = new PatientQuery();
-			patque.setQueryDesc(resultSet.getString("queryDesc"));
-			patque.setQueryDate(resultSet.getDate("queryDate"));
-			patque.setIsAns(resultSet.getString("isAns"));
+			
+			patque.setQuerycategory(resultSet.getString("query_category"));
+			patque.setQueryDesc(resultSet.getString("query_description"));
+			patque.setQueryStatus(resultSet.getString("query_status"));
+			patque.setQueryDate(resultSet.getDate("query_date"));
+			patque.setDoctorsReply(resultSet.getString("doctors_reply"));
+			
 			list.add(patque);
 			
 		}
