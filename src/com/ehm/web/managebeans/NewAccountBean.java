@@ -1,11 +1,15 @@
 package com.ehm.web.managebeans;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
 
+import com.ehm.db.impl.EhealthUtilDao;
+import com.ehm.db.impl.EhealthUtilDaoImpl;
 import com.ehm.db.impl.PatientDaoImpl;
 import com.ehm.db.model.Patient;
 
@@ -18,6 +22,7 @@ public class NewAccountBean {
 	private String emailId;
 	private String city;
 	private String state;
+	private List<SelectItem> stateList;
 	private String phoneNo;
 	private String password;
 	private String gender;
@@ -363,4 +368,31 @@ public class NewAccountBean {
 		gender = null;
 		dateOfBirth = null;
 	}
+
+	/**
+	 * @return the stateList
+	 */
+	public List<SelectItem> getStateList() {
+	
+		if(stateList == null){
+			EhealthUtilDao utilDao = new EhealthUtilDaoImpl();
+			try {
+				stateList = utilDao.getStateList();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return stateList;
+	}
+
+	/**
+	 * @param stateList the stateList to set
+	 */
+	public void setStateList(List<SelectItem> stateList) {
+		this.stateList = stateList;
+	}
+	
+	
 }

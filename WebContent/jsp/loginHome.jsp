@@ -9,6 +9,10 @@
 <title>E-Healthcare Management</title>
 <link href="/EHealthcareManagement/resources/css/bootstrap.min.css"
 	rel="stylesheet" type="text/css" />
+<link href="/EHealthcareManagement/resources/css/bootstrap-theme.css"
+	rel="stylesheet" type="text/css" />
+<link href="/EHealthcareManagement/resources/css/bootstrap.css"
+	rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -37,11 +41,18 @@
 				</tr>
 			</table>
 
-			<h:panelGrid>
-				<h:commandLink value="Profile" action="#{newAccountBean.viewPatientProfile}"></h:commandLink>
-				<h:commandLink value="History"></h:commandLink>
 
-			</h:panelGrid>
+
+
+			<ul class="nav nav-pills nav-stacked col-md-2">
+				<h:commandLink
+						value="Profile" action="#{newAccountBean.viewPatientProfile}"
+						styleClass="list-group-item"></h:commandLink>
+				<h:commandLink value="History"
+						styleClass="list-group-item"></h:commandLink>
+
+			</ul>
+
 		</h:form>
 	</f:view>
 

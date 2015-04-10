@@ -14,42 +14,49 @@
 		<h:graphicImage value="/images/logo1.PNG" width="98%" height="150"
 			style="margin-left: 10%, margin-right: 10%;"></h:graphicImage>
 
-	
-	
-	<div class="container">
-			<h:messages style="color:red;"></h:messages>
+
+
+		<div class="container">
+
+				<h:messages style="color:red;"></h:messages>
 			<br>
 			<table>
 				<tr>
 					<td><h:outputLabel value="Enter Email id: "></h:outputLabel></td>
-					<td><h:inputText id="email" value="#{loginBean.email}" required="true"
-							requiredMessage="Please Enter User Name" 
+					<td><h:inputText id="email" value="#{loginBean.email}"
+							required="true" requiredMessage="Please Enter User Name"
 							validatorMessage="Username value is invalid."
 							styleClass="form-control">
-							</h:inputText>
-							</td>
+						</h:inputText></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
 				<tr>
 					<td><h:outputLabel value="Enter Password: "></h:outputLabel></td>
 					<td><h:inputSecret id="password" value="#{loginBean.password}"
-						 required="true" requiredMessage="Please Enter Password." styleClass="form-control"
+							required="true" requiredMessage="Please Enter Password."
+							styleClass="form-control"
 							validatorMessage="Password value is invalid.">
-							</h:inputSecret>
-							</td>
+						</h:inputSecret></td>
 				</tr>
-				<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-				<tr><td></td>
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td></td>
 					<td><h:commandButton value="Login"
-						action="#{loginBean.validAndLoginUser}" 
-						styleClass="btn btn-success"></h:commandButton> &nbsp;</td>
-					
+							action="#{loginBean.validAndLoginUser}"
+							styleClass="btn btn-success"></h:commandButton> &nbsp;</td>
+
 				</tr>
 			</table>
 		</div>
-		</h:form>
-	
-	
+	</h:form>
+
+
 </body>
 	</html>
 </f:view>

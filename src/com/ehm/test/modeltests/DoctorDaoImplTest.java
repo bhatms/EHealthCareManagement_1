@@ -14,6 +14,8 @@ import org.junit.Test;
 
 import com.ehm.db.impl.DoctorDao;
 import com.ehm.db.impl.DoctorDaoImpl;
+import com.ehm.db.impl.EhealthUtilDao;
+import com.ehm.db.impl.EhealthUtilDaoImpl;
 import com.ehm.db.model.Doctor;
 
 public class DoctorDaoImplTest implements BaseTest {
@@ -62,6 +64,7 @@ public class DoctorDaoImplTest implements BaseTest {
 	@Test
 	public void testGetSpecializationList() {
 
+		EhealthUtilDao docObj = new EhealthUtilDaoImpl();
 		try {
 
 			List<SelectItem> testSpecList = docObj.getSpecializationList();

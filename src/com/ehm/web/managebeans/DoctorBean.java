@@ -8,6 +8,8 @@ import javax.faces.model.SelectItem;
 
 import com.ehm.db.impl.DoctorDao;
 import com.ehm.db.impl.DoctorDaoImpl;
+import com.ehm.db.impl.EhealthUtilDao;
+import com.ehm.db.impl.EhealthUtilDaoImpl;
 import com.ehm.db.model.Doctor;
 
 public class DoctorBean {
@@ -199,7 +201,7 @@ public class DoctorBean {
 	 */
 	public List<SelectItem> getSpecializationList() {
 
-		DoctorDao doctorDao = new DoctorDaoImpl();
+		EhealthUtilDao doctorDao = new EhealthUtilDaoImpl();
 		try {
 			specializationList = doctorDao.getSpecializationList();
 		} catch (SQLException e) {

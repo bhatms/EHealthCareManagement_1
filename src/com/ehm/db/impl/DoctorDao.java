@@ -15,5 +15,4 @@ public interface DoctorDao {
 
 	Doctor getDoctorProfile(int doctoId) throws ClassNotFoundException, SQLException;
 
-	List<SelectItem> getSpecializationList() throws ClassNotFoundException, SQLException;
 }

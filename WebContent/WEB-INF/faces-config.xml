@@ -89,6 +89,12 @@
 			<to-view-id>/jsp/patientProfile.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
-
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>navigateToQuery</from-outcome>
+			<to-view-id>/jsp/postQuery.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>

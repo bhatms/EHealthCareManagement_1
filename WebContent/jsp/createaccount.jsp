@@ -26,29 +26,32 @@
 				<tr>
 					<td><h:outputLabel value="First Name"></h:outputLabel></td>
 					<td><h:inputText value="#{newAccountBean.firstName}"
-							id="new_fname" required="true"
-							requiredMessage="Please Enter first name"></h:inputText></td>
+							id="new_fname" required="true" styleClass="form-control"
+							requiredMessage="Please Enter first name" maxlength="15"></h:inputText></td>
 					<td><h:message for="new_fname" style="color:red" /></td>
 				</tr>
 				<tr>
 					<td><h:outputLabel value="Last Name"></h:outputLabel></td>
 					<td><h:inputText value="#{newAccountBean.lastName}"
-							id="new_lname" required="true"
-							requiredMessage="Please Enter last name"></h:inputText></td>
+							id="new_lname" required="true" maxlength="15"
+							requiredMessage="Please Enter last name"
+							styleClass="form-control"></h:inputText></td>
 					<td><h:message for="new_lname" style="color:red" /></td>
 				</tr>
 				<tr>
 					<td><h:outputLabel value="Date Of Birth"></h:outputLabel></td>
 					<td><h:inputText value="#{newAccountBean.dateOfBirth}"
-							id="new_dob" required="true"
-							requiredMessage="Please date of birth">
+							id="new_dob" required="true" maxlength="10"
+							requiredMessage="Please date of birth"
+							styleClass="form-control">
 						</h:inputText> <h:outputLabel value="mm/dd/yyyy" /></td>
 					<td><h:message for="new_dob" style="color:red" /></td>
 				</tr>
 				<tr>
 					<td><h:outputLabel value="Gender"></h:outputLabel></td>
-					<td><h:selectOneRadio value="#{newAccountBean.gender}"
-							id="gender" required="true" requiredMessage="Please select">
+					<td><h:selectOneRadio value="#{newAccountBean.gender}" styleClass="input-group-addon"
+							id="gender" required="true" 
+							requiredMessage="Please select Gender">
 							<f:selectItem itemValue="m" itemLabel="Male" />
 							<f:selectItem itemValue="f" itemLabel="Female" />
 						</h:selectOneRadio></td>
@@ -58,7 +61,7 @@
 				<tr>
 					<td><h:outputLabel value="Phone No"></h:outputLabel></td>
 					<td><h:inputText value="#{newAccountBean.phoneNo}"
-							id="phone_no" required="true"
+							id="phone_no" required="true" maxlength="15"
 							requiredMessage="Please Enter phone no."></h:inputText></td>
 
 					<td><h:message for="phone_no" style="color:red" /></td>
@@ -73,15 +76,19 @@
 					<td><h:outputLabel value="Address Line"></h:outputLabel></td>
 					<td><h:inputText value="#{newAccountBean.addressLine}"
 							id="addrLine" required="true"
-							requiredMessage="Please Enter address line"></h:inputText></td>
+							requiredMessage="Please Enter address line" maxlength="30"></h:inputText></td>
 					<td><h:message for="addrLine" style="color:red" /></td>
 				</tr>
 				<tr>
 
 					<td><h:outputLabel value="State"></h:outputLabel></td>
-					<td><h:inputText value="#{newAccountBean.state}" id="state"
+					<td><%-- <h:inputText value="#{newAccountBean.state}" id="state"
 							required="true" requiredMessage="Please Enter state."></h:inputText>
-					</td>
+ --%>
+						<h:selectOneMenu value="#{newAccountBean.state}" id="state"
+							required="true" requiredMessage="Please Enter state.">
+							<f:selectItems value="#{newAccountBean.stateList}" />
+						</h:selectOneMenu></td>
 					<td><h:message for="state" style="color:red" /></td>
 				</tr>
 				<tr>
