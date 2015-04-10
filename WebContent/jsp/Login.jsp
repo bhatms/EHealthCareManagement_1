@@ -11,9 +11,15 @@
 </head>
 <body>
 	<f:view>
-		<h:form>
+		<h:form id="loginFOrm">
 			<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<div class="container">
+					<div class="navbar-header navbar-brand">
+					<h:commandLink>
+						<h:graphicImage value="/images/eHealthLog.png"
+							style="max-width: 100%; max-height: 100%;"></h:graphicImage>
+						</h:commandLink>
+					</div>
 					<div class="navbar-header">
 
 						<h3 style="color: white;">EHealthcare</h3>
@@ -30,7 +36,7 @@
 					<br>
 					<table>
 						<tr>
-							<td><h:outputLabel value="Enter Email id: "></h:outputLabel></td>
+							<td><h:outputLabel value="Enter Email id: " for="email"></h:outputLabel></td>
 							<td><h:inputText id="email" value="#{loginBean.email}"
 									required="true" requiredMessage="Please Enter User Name"
 									validatorMessage="Username value is invalid."
@@ -42,7 +48,7 @@
 							<td>&nbsp;</td>
 						</tr>
 						<tr>
-							<td><h:outputLabel value="Enter Password: "></h:outputLabel></td>
+							<td><h:outputLabel value="Enter Password: " for="password"></h:outputLabel></td>
 							<td><h:inputSecret id="password"
 									value="#{loginBean.password}" required="true"
 									requiredMessage="Please Enter Password."
