@@ -105,7 +105,7 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
-			<from-outcome>patientQuery</from-outcome>
+			<from-outcome>navigateToQueryPage</from-outcome>
 			<to-view-id>/jsp/PatientQuery.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
