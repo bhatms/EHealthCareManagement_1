@@ -6,7 +6,6 @@ public class PatientQuery {
 
 	private int patientId;
 	private int queryId;
-	private int subQueryId;
 	private String queryCategory;
 	private String queryDescription;
 	private String queryStatus;
@@ -24,12 +23,6 @@ public class PatientQuery {
 	}
 	public void setQueryId(int queryId) {
 		this.queryId = queryId;
-	}
-	public int getSubQueryId() {
-		return subQueryId;
-	}
-	public void setSubQueryId(int subQueryId) {
-		this.subQueryId = subQueryId;
 	}
 	public String getQueryCategory() {
 		return queryCategory;
