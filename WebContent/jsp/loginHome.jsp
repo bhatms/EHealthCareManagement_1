@@ -50,9 +50,9 @@
 						styleClass="list-group-item"></h:commandLink>
 				<h:commandLink value="History"
 						styleClass="list-group-item"></h:commandLink>
-
+				<h:commandLink value="Patient Past Queries" action="#{patientBean.displayQuery}"
+						styleClass="list-group-item"></h:commandLink>
 			</ul>
-
 		</h:form>
 	</f:view>
 
