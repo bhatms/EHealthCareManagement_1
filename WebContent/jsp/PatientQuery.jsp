@@ -17,16 +17,7 @@
 			style="margin-left: 10%, margin-right: 10%;"></h:graphicImage>
 		<br>
 		<br>
-		<h:outputText value="Search For Doctor" style="font-weight:bold;"></h:outputText>
-		<h:form id="QueryForm">
 
-			<h:commandButton action="#{patientBean.displayQuery}" value="Display" styleClass="btn btn-success">
-			</h:commandButton>
-			</h:panelGrid>
-
-		</h:form>
-		<br />
-		<br />
 		<h:outputText value="Patient Queries" style="font-weight:bold;"></h:outputText>
 		<h:form id="PatientQueries">
 			<h:dataTable id="patientQueryTable" value="#{patientBean.patientQueryList}"
