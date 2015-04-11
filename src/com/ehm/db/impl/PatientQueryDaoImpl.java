@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.ehm.db.config.EHMDataConnect;
@@ -23,24 +24,19 @@ public class PatientQueryDaoImpl implements PatientQueryDao {
 				"Select * from patient_query where patient_id = ?");
 		
 		ps.setInt(1, patientId);
-		
 		List<PatientQuery> list = new ArrayList<PatientQuery>();
-
 		ResultSet resultSet = ps.executeQuery();
-
-		if(resultSet != null && resultSet.next()){
-			PatientQuery patque = new PatientQuery();
-			
-			patque.setQuerycategory(resultSet.getString("query_category"));
-			patque.setQueryDesc(resultSet.getString("query_description"));
-			patque.setQueryStatus(resultSet.getString("query_status"));
-			patque.setQueryDate(resultSet.getDate("query_date"));
-			patque.setDoctorsReply(resultSet.getString("doctors_reply"));
-			
-			list.add(patque);
-			
-		}
+		PatientQuery patque = null;
 		
+		while(resultSet.next()){ 
+			patque = new PatientQuery();
+			patque.setQueryCategory(resultSet.getString("query_category"));
+			patque.setQueryDescription(resultSet.getString("query_description"));
+			patque.setQueryStatus(resultSet.getString("query_status"));
+			patque.setQueryDate(new Date(resultSet.getDate("query_date").getTime()));
+			patque.setDoctorsReply(resultSet.getString("doctors_reply"));
+			list.add(patque);
+		}
 		return list;
 	}
 
