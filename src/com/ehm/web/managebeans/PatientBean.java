@@ -84,18 +84,16 @@ public class PatientBean {
 		this.patientQueryList = patientQueryList;
 	}
 
-	public String dispalyQuery() {
+	public String displayQuery() {
 
 		PatientQueryDao patientqueryDao = new PatientQueryDaoImpl();
 
 		try {
 			String selectedPatientId = FacesContext.getCurrentInstance()
 					.getExternalContext().getRequestParameterMap()
-					.get("patientId");
-
+					.get("loggedInPatient");
 			if (selectedPatientId != null && !selectedPatientId.trim().isEmpty()) {
-				int patId = Integer.valueOf(selectedPatientId);
-				patientQueryList = patientqueryDao.patientQuery(patId);
+				patientQueryList = patientqueryDao.patientQuery(Integer.valueOf(selectedPatientId));
 			}
 			
 			if (patientQueryList != null && !patientQueryList.isEmpty()) {
